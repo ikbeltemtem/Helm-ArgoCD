@@ -1,0 +1,26 @@
+appName: myhelmapp
+
+microservices:
+  microA:
+    enabled: true
+    namespace: app1
+    replicaCount: 1
+    image:
+      name: devopsjourney1/mywebapp
+      tag: latest
+    service:
+      port: 80
+      type: ClusterIP
+
+  microB:
+    enabled: true
+    namespace: default
+    replicaCount: 1
+    image:
+      name: devopsjourney1/mywebapp
+      tag: latest
+    service:
+      port: 90
+      type: ClusterIP
+
+
