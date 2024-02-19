@@ -1,34 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
-  namespace: {{ .Values.microservices.microB.namespace }}
+  name: {{ .Values.appName }}-microb
+  namespace: {{ .Values.microB.namespace }}
   labels:
     app: {{ .Values.appName }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.microB.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.appName }}
       tier: frontend
+      microservice: microB
   template:
     metadata:
       labels:
         app: {{ .Values.appName }}
         tier: frontend
+        microservice: microB
     spec: # Pod spec
       containers:
       - name: mycontainer
-        image: {{ .Values.microservices.microB.image.name}}:{{ .Values.microservices.microB.image.tag}}
+        image: {{ .Values.microB.image.name }}:{{ .Values.microB.image.tag }}
         ports:
-        - containerPort: 90
+        - containerPort: {{ .Values.microB.service.port }}
         envFrom:
         - configMapRef:
-            name: myconfigmapv1.0
+            name: {{ .Values.microB.configMapName }}
         resources:
           requests:
-            memory: "16Mi" 
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+            memory: "16Mi"
+            cpu: "50m"
           limits:
             memory: "128Mi"
             cpu: "100m"

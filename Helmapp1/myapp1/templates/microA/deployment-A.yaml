@@ -1,34 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
-  namespace: {{ .Values.microservices.microA.namespace }}
+  name: {{ .Values.appName }}-microa
+  namespace: {{ .Values.microA.namespace }}
   labels:
     app: {{ .Values.appName }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.microA.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.appName }}
       tier: frontend
+      microservice: microA
   template:
     metadata:
       labels:
         app: {{ .Values.appName }}
         tier: frontend
+        microservice: microA
     spec: # Pod spec
       containers:
       - name: mycontainer
-        image: {{ .Values.microservices.microA.image.name}}:{{ .Values.microservices.microA.image.tag}}
+        image: {{ .Values.microA.image.name }}:{{ .Values.microA.image.tag }}
         ports:
-        - containerPort: 80
+        - containerPort: {{ .Values.microA.service.port }}
         envFrom:
         - configMapRef:
-            name: myconfigmapv1.0
+            name: {{ .Values.microA.configMapName }}
         resources:
           requests:
-            memory: "16Mi" 
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+            memory: "16Mi"
+            cpu: "50m"
           limits:
             memory: "128Mi"
             cpu: "100m"
