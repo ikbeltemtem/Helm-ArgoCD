@@ -4,7 +4,7 @@ metadata:
   name: myconfigmapv1.0
   namespace: {{ .Values.microservices.microB.namespace }}
 data:
-  BG_COLOR: '#12181b'
+  BG_COLOR: '#FF5733'
   FONT_COLOR: '#FFFFFF'
-  CUSTOM_HEADER: 'Customized with a configmap!'
+  CUSTOM_HEADER: 'Customized with a configmap! after editing :) !!'
 
