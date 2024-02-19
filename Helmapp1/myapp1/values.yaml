@@ -13,7 +13,7 @@ microservices:
       type: ClusterIP
 
   microB:
-    enabled: true
+    enabled: false
     namespace: default
     replicaCount: 1
     image:
