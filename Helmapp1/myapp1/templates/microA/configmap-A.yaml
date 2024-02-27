@@ -6,16 +6,10 @@ metadata:
 data:
   BG_COLOR: '#12181b'
   FONT_COLOR: '#FFFFFF'
-<<<<<<< HEAD
   CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
-{{- with .Values.microA.secretName }}
-{{- $secret := .Values.microA.secretName }}
-{{- $secretData := (printf "%s" (printf "secret/%s" $secret) | getSecretData)}}
-{{- range $key, $value := $secretData }}
-  {{ $key | upper }}: "{{ $value }}"
+{{- if .Values.microA.secretName }}
+envFrom:
+  - secretRef:
+      name: {{ .Values.microA.secretName }}
 {{- end }}
-{{- end }}
-=======
-  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!!'
 
->>>>>>> origin/main
