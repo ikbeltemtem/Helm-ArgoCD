@@ -6,6 +6,7 @@ metadata:
 data:
   BG_COLOR: '#12181b'
   FONT_COLOR: '#FFFFFF'
+<<<<<<< HEAD
   CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
 {{- with .Values.microA.secretName }}
 {{- $secret := .Values.microA.secretName }}
@@ -14,3 +15,7 @@ data:
   {{ $key | upper }}: "{{ $value }}"
 {{- end }}
 {{- end }}
+=======
+  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!!'
+
+>>>>>>> origin/main
