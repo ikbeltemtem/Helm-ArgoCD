@@ -8,8 +8,6 @@ data:
   FONT_COLOR: '#FFFFFF'
   CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
 {{- if .Values.microA.secretName }}
-envFrom:
-  - secretRef:
-      name: {{ .Values.microA.secretName }}
+  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret'
 {{- end }}
 
