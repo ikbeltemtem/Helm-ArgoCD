@@ -13,6 +13,7 @@ microA:
     type: ClusterIP
   configMapName: myconfigmapv1.0
   secretName: secret-microa
+  #password: aWtiZWw=
 microB:
   enabled: true
   namespace: default
