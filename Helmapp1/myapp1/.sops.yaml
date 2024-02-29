@@ -1,5 +1,10 @@
 creation_rules:
   - path_regex: "secrets/*"
     encrypted_regex: "^(users|data|stringData)$"
-    pgp: 'C27C7EF543D4DFA0DAB20C6EDB75A20BFE8BF81A'
+    pgp: 'DF9CA80734F83BD8F50993D720DD265A2C046F3A'
+
+
+
+
+
 
