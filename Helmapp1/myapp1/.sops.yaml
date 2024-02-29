@@ -1,10 +1,4 @@
 creation_rules:
-  - path_regex: "secrets/*"
-    encrypted_regex: "^(users|data|stringData)$"
-    pgp: 'DF9CA80734F83BD8F50993D720DD265A2C046F3A'
-
-
-
-
-
+  - path_regex: '^secrets/secret\.yaml$'
+    age: 'age1lu7fjguc34rx8k7catczz4uqrfpd75dy4ludyhkx9qj38s90c90s8zx2x7'
 
