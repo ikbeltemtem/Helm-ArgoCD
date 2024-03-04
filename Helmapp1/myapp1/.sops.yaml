@@ -1,3 +1,5 @@
 creation_rules:
-- encrypted_regex: "^(users|data|stringData)$"
+- path_regex: "^secrets/secret.yaml$"
+  encrypted_regex: "^(data|stringData)$"
   pgp: 'D31BDEC57ECF0E509CE1A2963322786EF28849EA'
+
