@@ -12,7 +12,7 @@ microA:
     port: 80
     type: ClusterIP
   configMapName: myconfigmapv1.0
-  #secretName: secret-microa
+  secretName: secret-microa
   #password: aWtiZWw=
 microB:
   enabled: true

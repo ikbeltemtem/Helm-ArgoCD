@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Values.microB.configMapName }}
+  namespace: {{ .Values.microB.namespace }}
+data:
+  BG_COLOR: '#12181b'
+  FONT_COLOR: '#FFFFFF'
+  CUSTOM_HEADER: 'Customized with a configmap! For MicroB !!:'
+

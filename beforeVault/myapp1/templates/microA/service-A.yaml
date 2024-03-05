@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}-microa-service
+  namespace: {{ .Values.microA.namespace }}
+  labels:
+    app: {{ .Values.appName }}
+spec:
+  ports:
+  - port: {{ .Values.microA.service.port }}
+    protocol: TCP
+    name: flask
+  selector:
+    app: {{ .Values.appName }}
+    tier: frontend
+    microservice: microA
+  type: ClusterIP
+
