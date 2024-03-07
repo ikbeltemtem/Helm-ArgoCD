@@ -6,9 +6,6 @@ metadata:
   name: {{ .Values.microA.configMapName }}
   namespace: {{ .Values.microA.namespace }}
 data:
-  #BG_COLOR: '#12181b'
-  #FONT_COLOR: '#FFFFFF'
-  #CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
 {{- range $key, $value := fromYaml . }}
   {{ $key }}: "{{ $value }}"
 {{- end }}
@@ -17,3 +14,4 @@ data:
   CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret'
 {{- end }}
 {{- end }}
+
