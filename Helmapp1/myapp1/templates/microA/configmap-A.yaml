@@ -3,8 +3,8 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ .Values.microA.configMapName }}
-  namespace: {{ .Values.microA.namespace }}
+  name: myconfigmapv1.0
+  namespace: dev    #{{ .Values.microA.namespace }}
 data:
 {{- range $key, $value := fromYaml . }}
   {{ $key }}: "{{ $value }}"
