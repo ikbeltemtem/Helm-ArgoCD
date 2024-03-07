@@ -13,9 +13,9 @@ microA:
     type: ClusterIP
   configMapName: myconfigmapv1.0
   secretName: secret-microa
-  envConfig:
-    enabled: true
-    filePath: "https://github.com/ikbeltemtem/Helm-values/dev/configs/env.yaml"
+  #envConfig:
+    #enabled: true
+    #filePath: "https://github.com/ikbeltemtem/Helm-values/dev/configs/env.yaml"
 microB:
   enabled: true
   namespace: default
