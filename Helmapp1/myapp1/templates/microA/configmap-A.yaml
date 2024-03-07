@@ -1,13 +1,19 @@
+{{- if .Values.microA.envConfig.enabled }}
 kind: ConfigMap
 apiVersion: v1
 metadata:
   name: {{ .Values.microA.configMapName }}
   namespace: {{ .Values.microA.namespace }}
 data:
-  BG_COLOR: '#12181b'
-  FONT_COLOR: '#FFFFFF'
-  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
+  #BG_COLOR: '#12181b'
+  #FONT_COLOR: '#FFFFFF'
+  #CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !!'
+  {{- $envFile := .Files.Get .Values.microA.envConfig.filePath }}
+  {{- range $key, $value := fromYaml $envFile }}
+    {{ $key }}: "{{ $value }}"
+  {{- end }}
+
 {{- if .Values.microA.secretName }}
   CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret'
 {{- end }}
-
+{{- end }}
