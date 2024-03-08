@@ -23,7 +23,8 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
-{{- define "microA.serviceAccountName" -}}
+
+{{- define "myapp1.microA.serviceAccountName" -}}
 {{- if .Values.microA.serviceAccount.create }}
 {{- default (include "myapp1.fullname" .) .Values.microA.serviceAccount.name }}
 {{- else }}
@@ -31,8 +32,7 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 {{- end }}
 
-
-{{- define "microB.serviceAccountName" -}}
+{{- define "myapp1.microB.serviceAccountName" -}}
 {{- if .Values.microB.serviceAccount.create }}
 {{- default (include "myapp1.fullname" .) .Values.microB.serviceAccount.name }}
 {{- else }}
