@@ -3,6 +3,7 @@ appName: myhelmapp
 nameOverride: ""
 fullnameOverride: ""
 microA:
+  
   enabled: true
   namespace: default
   replicaCount: 1
@@ -25,6 +26,7 @@ microA:
  
 microB:
   enabled: true
+  
   namespace: default
   replicaCount: 1
   serviceAccount:
@@ -42,4 +44,8 @@ microB:
     type: ClusterIP
   configMapName: myconfigmapv2.0
 
-
+microservices:
+  - name: microA
+    enabled: true
+  - name: microB
+    enabled: true
