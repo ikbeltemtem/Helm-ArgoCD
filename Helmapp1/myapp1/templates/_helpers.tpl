@@ -5,7 +5,7 @@ If release name contains chart name it will be used as a full name.
 */}}
 
 {{- define "myapp1.microservices" -}}
-{{- list "microA" .Values.microA "microB" .Values.microB }} 
+{{- list "microA" "microB" }} 
 {{- end }}
 
 {{- define "myapp1.fullname" -}}
