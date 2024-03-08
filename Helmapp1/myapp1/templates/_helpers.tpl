@@ -4,9 +4,11 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 
+
 {{- define "myapp1.microservices" -}}
-{{- list "microA" "microB" }} 
+{{- list .Values.microA.name .Values.microB.name }}  {{/* Add more microservices as needed */}}
 {{- end }}
+
 
 {{- define "myapp1.fullname" -}}
 {{- if .Values.fullnameOverride }}
