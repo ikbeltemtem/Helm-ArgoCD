@@ -1,17 +1,14 @@
-{{- $envData := .Values.env }}
-{{- with $envData }}
+
 kind: ConfigMap
 apiVersion: v1
 metadata:
   name: myconfigmapv1.0
-  namespace: dev    #{{ .Values.microA.namespace }}
+  namespace: {{ .Values.microA.namespace }}
+{{- if .Values.Env }}  
 data:
-{{- range $key, $value := fromYaml . }}
-  {{ $key }}: "{{ $value }}"
+{{- include "common.tplvalues.render" ( dict "value" .Values.Env "context" $ ) | nindent 2 }}
 {{- end }}
 
 {{- if .Values.microA.secretName }}
-  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret'
+  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret !! test Docker Hub'
 {{- end }}
-{{- end }}
-

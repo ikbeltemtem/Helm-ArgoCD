@@ -1,20 +1,10 @@
 appName: myhelmapp
 
-nameOverride: ""
-fullnameOverride: ""
+
 microA:
-  
   enabled: true
   namespace: default
   replicaCount: 1
-  serviceAccount:
-    # Specifies whether a service account should be created
-    create: true
-    # Annotations to add to the service account
-    annotations: {}
-    # The name of the service account to use.
-    # If not set and create is true, a name is generated using the fullname template
-    name: "microaserviceacc"
   image:
     name: devopsjourney1/mywebapp
     tag: latest
@@ -23,19 +13,11 @@ microA:
     type: ClusterIP
   configMapName: myconfigmapv1.0
   secretName: secret-microa
- 
+
 microB:
   enabled: true
-  
   namespace: default
   replicaCount: 1
-  serviceAccount:
-    
-    create: false
-   
-    annotations: {}
-    
-    name: ""
   image:
     name: devopsjourney1/mywebapp
     tag: latest
@@ -43,9 +25,3 @@ microB:
     port: 80
     type: ClusterIP
   configMapName: myconfigmapv2.0
-
-microservices:
-  - name: microA
-    enabled: true
-  - name: microB
-    enabled: true
