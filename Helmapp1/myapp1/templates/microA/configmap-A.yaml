@@ -8,7 +8,9 @@ metadata:
 data:
 {{- include "common.tplvalues.render" ( dict "value" .Values.Env "context" $ ) | nindent 2 }}
 {{- end }}
-
-{{- if .Values.microA.secretName }}
-  CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret !! test Docker Hub'
+{{- if .Values.appConf }}
+{{- include "common.tplvalues.render" ( dict "value" .Values.appConf "context" $ ) | nindent 2 }}
 {{- end }}
+
+
+
